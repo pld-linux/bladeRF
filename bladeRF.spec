@@ -58,6 +58,7 @@ Pliki nagłówkowe biblioteki libbladeRF.
 install -d host/build
 cd host/build
 %cmake .. \
+	-DCMAKE_INSTALL_LIBDIR=%{_lib} \
 	-DUDEV_RULES_PATH=/lib/udev/rules.d \
 	-DVERSION_INFO_EXTRA=""
 
@@ -65,6 +66,8 @@ cd host/build
 
 %install
 rm -rf $RPM_BUILD_ROOT
+# cmake script defaults to %{_prefix}/lib if libdir doesn't exists
+install -d $RPM_BUILD_ROOT%{_libdir}
 
 %{__make} -C host/build install \
 	DESTDIR=$RPM_BUILD_ROOT
