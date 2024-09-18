@@ -14,6 +14,7 @@ Source0:	https://github.com/Nuand/bladeRF/archive/%{version}/%{name}-%{version}.
 %define	noOS_gitref	0bba46e6f6f75785a65d425ece37d0a04daf6157
 Source1:	https://github.com/analogdevicesinc/no-OS/archive/%{noOS_gitref}/no-OS-%{noOS_gitref}.tar.gz
 # Source1-md5:	2c06ff9297d8beb0482a1b0b5e4d3128
+Patch0:		%{name}-calloc.patch
 URL:		https://github.com/Nuand/bladeRF
 BuildRequires:	cmake >= 3.5
 # or libedit (libtecla preferred)
@@ -54,6 +55,7 @@ Pliki nagłówkowe biblioteki libbladeRF.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %{__tar} xf %{SOURCE1} -C thirdparty/analogdevicesinc/no-OS --strip-components=1
 

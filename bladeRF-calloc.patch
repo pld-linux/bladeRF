@@ -1,0 +1,25 @@
+host/utilities/bladeRF-fsk/c/src/fir_filter.c:227:28: error: 'calloc' sizes specified with 'sizeof' in the earlier argument and not in the later argument [-Werror=calloc-transposed-args]
+--- bladeRF-2024.05/host/utilities/bladeRF-fsk/c/src/fir_filter.c.orig	2024-03-04 23:16:08.000000000 +0100
++++ bladeRF-2024.05/host/utilities/bladeRF-fsk/c/src/fir_filter.c	2024-09-18 21:48:08.494117931 +0200
+@@ -213,18 +213,18 @@ int main(int argc, char *argv[])
+         return EXIT_FAILURE;
+     }
+ 
+-    inbuf = calloc(2*sizeof(int16_t), chunk_size);
++    inbuf = calloc(chunk_size, 2*sizeof(int16_t));
+     if (!inbuf) {
+         perror("calloc");
+         goto out;
+     }
+-    tempbuf = calloc(2*sizeof(int16_t), chunk_size);
++    tempbuf = calloc(chunk_size, 2*sizeof(int16_t));
+     if (!tempbuf) {
+         perror("calloc");
+         goto out;
+     }
+ 
+-    outbuf = calloc(sizeof(struct complex_sample), chunk_size);
++    outbuf = calloc(chunk_size, sizeof(struct complex_sample));
+     if (!outbuf) {
+         perror("calloc");
+         goto out;
