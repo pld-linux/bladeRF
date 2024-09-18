@@ -4,18 +4,18 @@
 Summary:	Library and tools to interact with bladeRF platform
 Summary(pl.UTF-8):	Biblioteka i narzędzia do pracy z platformą bladeRF
 Name:		bladeRF
-Version:	2023.02
+Version:	2024.05
 Release:	1
 License:	LGPL v2.1, GPL v2, MIT
 Group:		Applications/Communication
 #Source0Download: https://github.com/Nuand/bladeRF/releases
 Source0:	https://github.com/Nuand/bladeRF/archive/%{version}/%{name}-%{version}.tar.gz
-# Source0-md5:	bc97f35923f01237c00a2036a2bb6611
+# Source0-md5:	63bc0e0896b08f105f30722f82ee9eb8
 %define	noOS_gitref	0bba46e6f6f75785a65d425ece37d0a04daf6157
 Source1:	https://github.com/analogdevicesinc/no-OS/archive/%{noOS_gitref}/no-OS-%{noOS_gitref}.tar.gz
 # Source1-md5:	2c06ff9297d8beb0482a1b0b5e4d3128
 URL:		https://github.com/Nuand/bladeRF
-BuildRequires:	cmake >= 2.8.12
+BuildRequires:	cmake >= 3.5
 # or libedit (libtecla preferred)
 BuildRequires:	libtecla-devel
 BuildRequires:	libusb-devel >= 1.0.16
@@ -102,3 +102,4 @@ rm -rf $RPM_BUILD_ROOT
 %{_includedir}/bladeRF2.h
 %{_includedir}/libbladeRF.h
 %{_pkgconfigdir}/libbladeRF.pc
+%{_datadir}/cmake/bladeRF
