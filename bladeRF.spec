@@ -55,7 +55,7 @@ Pliki nagłówkowe biblioteki libbladeRF.
 
 %prep
 %setup -q
-%patch0 -p1
+%patch -P0 -p1
 
 %{__tar} xf %{SOURCE1} -C thirdparty/analogdevicesinc/no-OS --strip-components=1
 
